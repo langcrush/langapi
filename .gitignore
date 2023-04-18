@@ -1,13 +1,19 @@
 # IDE
 /.idea
 /.vscode
+/.fleet
 /.*.meta.*
 
 # Composer
 /vendor/
+auth.json
 
 # Caches
 /*.cache
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
 
 # Environment
 .env
@@ -22,3 +28,4 @@
 *.png
 *.bak
 *.out
+*.pid

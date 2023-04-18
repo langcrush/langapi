@@ -1,0 +1,24 @@
+# IDE
+/.idea
+/.vscode
+/.*.meta.*
+
+# Composer
+/vendor/
+
+# Caches
+/*.cache
+
+# Environment
+.env
+.env*local*
+!.env*.example
+
+# Misc
+*.swp
+*.csv
+!*sample*.csv
+*.log
+*.png
+*.bak
+*.out

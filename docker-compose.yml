@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
     laravel.test:
-        image: renapi
+        image: verbapi
         build:
             context: docker
             dockerfile: Dockerfile
@@ -41,7 +41,16 @@ services:
         networks:
             - sail
         healthcheck:
-            test: ['CMD-SHELL', 'pg_isready', '-q', '-d', '${DB_DATABASE}', '-U', '${DB_USERNAME}']
+            test:
+                [
+                    'CMD-SHELL',
+                    'pg_isready',
+                    '-q',
+                    '-d',
+                    '${DB_DATABASE}',
+                    '-U',
+                    '${DB_USERNAME}'
+                ]
             retries: 3
             timeout: 5s
 

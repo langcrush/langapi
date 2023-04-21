@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\CategoryExistsFilledRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class StoreWordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +24,8 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:50',
-            'description' => 'nullable|string|max:255'
+            'translation' => 'required|string|max:50',
+            'category_id' => ['required', 'integer', new CategoryExistsFilledRule()]
         ];
     }
 }

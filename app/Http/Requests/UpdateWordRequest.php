@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\CategoryExistsFilledRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class UpdateWordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +23,9 @@ class StoreCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:50',
-            'description' => 'nullable|string|max:255'
+            'name' => 'string|max:50',
+            'translation' => 'string|max:50',
+            'category_id' => ['integer', new CategoryExistsFilledRule()]
         ];
     }
 }

@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Category;
 
-use App\Rules\CategoryExistsFilledRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateWordRequest extends FormRequest
+class StoreCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +22,8 @@ class UpdateWordRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|max:50',
-            'translation' => 'string|max:50',
-            'category_id' => ['integer', new CategoryExistsFilledRule()]
+            'name' => 'required|string|max:50',
+            'description' => 'nullable|string|max:255'
         ];
     }
 }

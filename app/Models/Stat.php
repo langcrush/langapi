@@ -6,15 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Word extends Model
+class Stat extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'translation',
-        'category_id'
+        'user_id',
+        'category_id',
+        'score'
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public function category(): BelongsTo
     {

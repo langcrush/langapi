@@ -26,7 +26,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request, UserService $service): Response
     {
         $user = $service->create((array)$request->validated());
-        $user->email_verified_at = now();
+        $user->email_verified_at = now()->toDateTimeString();
         $user->update();
         return response($user, Response::HTTP_CREATED);
     }

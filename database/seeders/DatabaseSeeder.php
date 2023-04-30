@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Category;
+use App\Models\Stat;
 use App\Models\User;
 use App\Models\Word;
 use Illuminate\Database\Seeder;
@@ -33,5 +34,7 @@ class DatabaseSeeder extends Seeder
             }
         }
         Word::insert($words);
+
+        Stat::factory(10)->create();
     }
 }

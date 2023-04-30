@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreWordRequest;
-use App\Http\Requests\UpdateWordRequest;
+use App\Http\Requests\Word\StoreWordRequest;
+use App\Http\Requests\Word\UpdateWordRequest;
 use App\Http\Resources\WordResource;
 use App\Models\Word;
 

@@ -49,7 +49,6 @@ class AuthController extends Controller
         return view('confirmed');
     }
 
-    //TODO: forbid login of unconfirmed users
     public function login(Request $request): Response
     {
         if(!Auth::attempt($request->only('email', 'password'))) {
@@ -59,6 +58,12 @@ class AuthController extends Controller
         }
 
         $user = User::where('email', $request->input('email'))->firstOrFail();
+
+        if(!$user->email_verified_at) {
+            return response([
+                'message' => 'Email was not confirmed.'
+            ], Response::HTTP_CONFLICT);
+        }
 
         $token = $user->createToken('auth_token');
 

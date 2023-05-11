@@ -19,7 +19,6 @@ class AuthController extends Controller
     public function register(StoreUserRequest $request, UserService $service): Response
     {
         $user = $service->create($request->validated());
-        //TODO: if confirmation exists return existing
         $confirmation = Confirmation::create([
             'email' => $user->email,
             'token' => str()->random(32)
@@ -78,12 +77,20 @@ class AuthController extends Controller
         ]);
     }
 
-    // public function logout(Request $request)
+    public function logout(): Response
+    {
+        $token = Auth::user()->currentAccessToken();
+        $token->delete();
+
+        return response([], Response::HTTP_NO_CONTENT);
+    }
+
+    // public function deleteAcc(Request $request)
     // {
 
     // }
 
-    // public function deleteAcc(Request $request)
+    // public function recover(Request $request)
     // {
 
     // }

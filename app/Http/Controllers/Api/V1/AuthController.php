@@ -85,10 +85,16 @@ class AuthController extends Controller
         return response([], Response::HTTP_NO_CONTENT);
     }
 
-    // public function deleteAcc(Request $request)
-    // {
-
-    // }
+    public function deleteAcc(Request $request)
+    {
+        $user = User::where('email', Auth::user()->email)->first();
+        $confirmation = Confirmation::where('email', $user->email)->first();
+        if($confirmation) {
+            $confirmation->delete();
+        }
+        $user->delete();
+        return response([], Response::HTTP_NO_CONTENT);
+    }
 
     // public function recover(Request $request)
     // {

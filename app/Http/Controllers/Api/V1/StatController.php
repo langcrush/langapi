@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreStatRequest;
-use App\Http\Requests\UpdateStatRequest;
+use App\Http\Requests\Stats\StoreStatRequest;
+use App\Http\Requests\Stats\UpdateStatRequest;
 use App\Http\Resources\StatResource;
 use App\Models\Stat;
 

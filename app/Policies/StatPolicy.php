@@ -6,7 +6,7 @@ use App\Models\Stats;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 
-class StatsPolicy
+class StatPolicy
 {
     /**
      * Determine whether the user can view any models.

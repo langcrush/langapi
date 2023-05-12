@@ -5,4 +5,4 @@ Click the link below to confirm your email and end the registration process.
 {{ $url }}
 
 Good luck learning!
-Langdice Team
+{{ env('APP_NAME', 'Application') }} Team

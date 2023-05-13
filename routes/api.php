@@ -12,12 +12,16 @@ Route::prefix('v1')->group(function () {
         Route::post('/login', ['as' => 'login', 'uses' => 'login']);
         Route::post('/register', 'register');
         Route::get('/confirm', 'confirm');
+        Route::post('/recover', 'recover');
+        Route::post('/isvalidrecover', 'isvalidrecover');
+        Route::post('/setnew', 'setnew');
     });
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [AuthController::class, 'logout']);
         Route::get('/me', [AuthController::class, 'me']);
         Route::delete('/deleteacc', [AuthController::class, 'deleteAcc']);
+
         Route::apiResource('users', UserController::class);
         Route::apiResource('categories', CategoryController::class);
         Route::apiResource('words', WordController::class);

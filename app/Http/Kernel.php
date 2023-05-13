@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
 
     protected function schedule(\Illuminate\Console\Scheduling\Schedule $schedule): void
     {
+        //TODO: delete unconfirmed users after set amount of time
         $schedule->command('sanctum:prune-expired --hours=24')->daily();
     }
 }

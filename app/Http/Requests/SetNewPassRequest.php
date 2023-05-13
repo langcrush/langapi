@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\User;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserRequest extends FormRequest
+class SetNewPassRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,7 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:32|min:3',
-            'email' => 'required|string|max:64|unique:users,email|email',
+            'token' => 'required|string|max:32|min:32|exists:password_reset_tokens,token',
             'password' => 'required|string|max:64|min:8|confirmed'
         ];
     }
